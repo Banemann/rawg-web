@@ -5,7 +5,7 @@ import { HStack, Image } from '@chakra-ui/react';
 
 export const NavBar = () => {
   return (
-    <HStack spacing={4} alignItems="center">
+    <HStack spacing={4} alignItems="center" justifyContent={"space-between"} paddingRight="20px">
       <Image src={logo} alt="Logo" boxSize="50px" objectFit="cover" />
       <ColorModeSwitch />
     </HStack>
