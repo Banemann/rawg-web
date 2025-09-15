@@ -5,7 +5,7 @@ import type { Game } from "../hooks/useGames";
 import { GameCard } from "./GameCard";
 
 export const GameGrid = () => {
-  const [games, error] = useGames();
+  const { games, error } = useGames();
 
   return (
     <div>
