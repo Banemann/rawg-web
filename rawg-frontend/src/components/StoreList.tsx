@@ -8,8 +8,8 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 
-import getCroppedImageUrl from "../services/image-url";
 import useStores, { type Store } from "../hooks/useStores";
+import getCroppedImageUrl from "../services/image-url";
 
 interface Props {
   onSelectStore: (store: Store | null) => void;
