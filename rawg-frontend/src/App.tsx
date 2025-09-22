@@ -9,15 +9,22 @@ import { NavBar } from "./components/NavBar";
 import PlatformSelector from "./components/PlatformSelector";
 import type { Platform } from "./hooks/useGames";
 import type { Genre } from "./hooks/useGenres";
+import type { Store } from "./hooks/useStores";
+import StoreList from "./components/StoreList";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
     null,
   );
+  const [selectedStore, setSelectedStore] = useState<Store | null>(null);
 
   const handleSelectGenre = (genre: Genre | null) => {
     setSelectedGenre(genre);
+  };
+
+  const handleSelectStore = (store: Store | null) => {
+    setSelectedStore(store);
   };
 
   const handleSelectPlatform = (platform: Platform | null) => {
@@ -38,6 +45,10 @@ function App() {
             onSelectGenre={handleSelectGenre}
             selectedGenre={selectedGenre}
           />
+          <StoreList
+            onSelectStore={handleSelectStore}
+            selectedStore={selectedStore}
+          />
         </GridItem>
       </Show>
       <GridItem pl="2" area={"main"}>
@@ -48,6 +59,7 @@ function App() {
         <GameGrid
           selectedGenre={selectedGenre}
           selectedPlatform={selectedPlatform}
+          selectedStore={selectedStore}
         />
       </GridItem>
     </Grid>
