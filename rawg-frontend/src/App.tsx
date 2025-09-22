@@ -8,6 +8,7 @@ import GenreList from "./components/GenreList";
 import { NavBar } from "./components/NavBar";
 import type { Genre } from "./hooks/useGenres";
 
+
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
 
@@ -25,7 +26,7 @@ function App() {
       </GridItem>
       <Show above="lg">
         <GridItem pl="2" area={"aside"}>
-          <GenreList onSelectGenre={handleSelectGenre} />
+          <GenreList onSelectGenre={handleSelectGenre} selectedGenre={selectedGenre} />
         </GridItem>
       </Show>
       <GridItem pl="2" area={"main"}>
