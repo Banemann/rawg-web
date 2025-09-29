@@ -1,85 +1,95 @@
-import { Store } from "./entities/Store";
+import * as fs from "fs";
+import { AppDataSource } from "./data-source";
+import { Game } from "./entities/Game";
 import { Genre } from "./entities/Genre";
 import { ParentPlatform } from "./entities/ParentPlatform";
-import { AppDataSource } from "./data-source";
-import * as fs from "fs";
-import { Game } from "./entities/Game";
+import { Store } from "./entities/Store";
 
 interface GameOriginal {
-    id: number;
-    name: string;
-    background_image?: string;
-    metacritic?: number;
-    parent_platforms: { platform: ParentPlatform }[];
-    genres: Genre[];
-    stores: { store: Store }[];
+  id: number;
+  name: string;
+  background_image?: string;
+  metacritic?: number;
+  parent_platforms: { platform: ParentPlatform }[];
+  genres: Genre[];
+  stores: { store: Store }[];
 }
 
 async function insertData() {
-    await AppDataSource.initialize();
-    const rawData = fs.readFileSync("games.json", "utf-8");
-    const parsedData = JSON.parse(rawData);
-    const gameOriginalData: GameOriginal[] = parsedData.results;
+  await AppDataSource.initialize(); // Initialize the data source connection
 
-    const gamesData: Game[] = gameOriginalData.map(game => ({
-        ...game,
-        parent_platforms: game.parent_platforms.map(pp => pp.platform),
-        stores: game.stores.map(s => s.store)
-    }));
+  //get data from games.json and parse it:
+  const rawData = fs.readFileSync("games.json", "utf-8");
+  const parsedData = JSON.parse(rawData);
+  const gamesOriginalData: GameOriginal[] = parsedData.results;
 
-    const gameRepository = AppDataSource.getRepository(Game);
-    const genreRepository = AppDataSource.getRepository(Genre);
-    const storeRepository = AppDataSource.getRepository(Store);
-    const parentPlatformRepository = AppDataSource.getRepository(ParentPlatform);
+  const gamesData: Game[] = gamesOriginalData.map((game) => ({
+    ...game,
+    parent_platforms: game.parent_platforms.map((pp) => pp.platform),
+    stores: game.stores.map((s) => s.store),
+  }));
 
-    await gameRepository.delete({});
-    await genreRepository.delete({});
-    await storeRepository.delete({});
-    await parentPlatformRepository.delete({});
-    console.log("Old data cleared");
+  const gameRepo = AppDataSource.getRepository(Game);
+  const genreRepo = AppDataSource.getRepository(Genre);
+  const parentPlatformRepo = AppDataSource.getRepository(ParentPlatform);
+  const storeRepo = AppDataSource.getRepository(Store);
 
-    for (const game of gamesData) {
-        await Promise.all(
-            game.genres.map(async (g) => {
-                let genre = await genreRepository.findOne({ where: { id: g.id } });
-                if (!genre) {
-                    await genreRepository.save(g);
-                }
-                return genre;
-            })
-        );
+  //before inserting data, delete all existing data to avoid duplicates:
+  await gameRepo.delete({});
+  console.log("games deleted");
+  await genreRepo.delete({});
+  console.log("genres deleted");
+  await parentPlatformRepo.delete({});
+  console.log("parent platforms deleted");
+  await storeRepo.delete({});
+  console.log("stores deleted");
 
-        await Promise.all(
-            game.stores.map(async (s) => {
-                let store = await storeRepository.findOne({ where: { id: s.id } });
-                if (!store) {
-                    await storeRepository.save(s);
-                }
-                return store;
-            })
-        );
+  for (const game of gamesData) {
+    await Promise.all(
+      game.genres.map(async (g) => {
+        let genre = await genreRepo.findOne({ where: { id: g.id } });
+        if (!genre) {
+          genre = await genreRepo.save(g);
+          console.log(`Genre: ${g.name} created`);
+        }
+        return genre;
+      })
+    );
 
-        await Promise.all(
-            game.parent_platforms.map(async (pp) => {
-                let parentPlatform = await parentPlatformRepository.findOne({ where: { id: pp.id } });
-                if (!parentPlatform) {
-                    await parentPlatformRepository.save(pp);
-                }
-                return parentPlatform;
-            })
-        );
+    await Promise.all(
+      game.parent_platforms.map(async (pp) => {
+        let parentPlatform = await parentPlatformRepo.findOne({
+          where: { id: pp.id },
+        });
+        if (!parentPlatform) {
+          parentPlatform = await parentPlatformRepo.save(pp);
+          console.log(`Parent Platform: ${pp.name} created`);
+        }
+        return parentPlatform;
+      })
+    );
 
-        await gameRepository.save(game);
-        console.log(`Inserted game: ${game.name}`);
-    }
-    }
+    await Promise.all(
+      game.stores.map(async (s) => {
+        let store = await storeRepo.findOne({ where: { id: s.id } });
+        if (!store) {
+          store = await storeRepo.save(s);
+          console.log(`Store: ${s.name} created`);
+        }
+        return store;
+      })
+    );
 
-    insertData()
-    .then(() => {
-        console.log("Data insertion complete");
-        process.exit(0);
-    })
-    .catch((error) => {
-        console.error("Error during data insertion:", error);
-        process.exit(1);
-    });
+    await gameRepo.save(game);
+    console.log(`Game: ${game.name} created`);
+  }
+}
+
+insertData()
+  .then(() => {
+    console.log("Data insertion completed.");
+    return AppDataSource.destroy();
+  })
+  .catch((error) => {
+    console.error("Error during data insertion:", error);
+  });
