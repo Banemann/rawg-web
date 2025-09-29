@@ -1,0 +1,310 @@
+[
+  {
+    "id": 3498,
+    "slug": "grand-theft-auto-v",
+    "name": "Grand Theft Auto V",
+    "released": "2013-09-17",
+    "tba": false,
+    "background_image": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
+    "rating": 4.48,
+    "rating_top": 5,
+    "ratings": [
+      {
+        "id": 5,
+        "title": "exceptional",
+        "count": 2922,
+        "percent": 59.03
+      },
+      {
+        "id": 4,
+        "title": "recommended",
+        "count": 1493,
+        "percent": 30.15
+      },
+      {
+        "id": 3,
+        "title": "meh",
+        "count": 376,
+        "percent": 7.6
+      },
+      {
+        "id": 1,
+        "title": "skip",
+        "count": 173,
+        "percent": 3.49
+      }
+    ],
+    "ratings_count": 4960,
+    "reviews_text_count": 36,
+    "added": 19029,
+    "added_by_status": {
+      "yet": 1236,
+      "owned": 13545,
+      "beaten": 3131,
+      "toplay": 648,
+      "dropped": 469,
+      "playing": 0
+    },
+    "metacritic": 96,
+    "suggestions_count": 575,
+    "updated": "2024-06-10T08:30:23",
+    "user_game": null,
+    "reviews_count": 5002,
+    "community_rating": 4.48,
+    "saturated_color": "0f0f0f",
+    "dominant_color": "0f0f0f",
+    "platforms": [
+      {
+        "platform": {
+          "id": 4,
+          "name": "PC",
+          "slug": "pc"
+        }
+      },
+      {
+        "platform": {
+          "id": 187,
+          "name": "PlayStation 5",
+          "slug": "playstation5"
+        }
+      },
+      {
+        "platform": {
+          "id": 18,
+          "name": "PlayStation 4",
+          "slug": "playstation4"
+        }
+      },
+      {
+        "platform": {
+          "id": 1,
+          "name": "Xbox One",
+          "slug": "xbox-one"
+        }
+      },
+      {
+        "platform": {
+          "id": 186,
+          "name": "Xbox Series S/X",
+          "slug": "xbox-series-x"
+        }
+      },
+      {
+        "platform": {
+          "id": 7,
+          "name": "Nintendo Switch",
+          "slug": "nintendo-switch"
+        }
+      },
+      {
+        "platform": {
+          "id": 3,
+          "name": "iOS",
+          "slug": "ios"
+        }
+      }
+    ],
+    "parent_platforms": [
+      {
+        "platform": {
+          "id": 1,
+          "name": "PC",
+          "slug": "pc"
+        }
+      },
+      {
+        "platform": {
+          "id": 2,
+          "name": "PlayStation",
+          "slug": "playstation"
+        }
+      },
+      {
+        "platform": {
+          "id": 3,
+          "name": "Xbox",
+          "slug": "xbox"
+        }
+      },
+      {
+        "platform": {
+          "id": 7,
+          "name": "Nintendo",
+          "slug": "nintendo"
+        }
+      },
+      {
+        "platform": {
+          "id": 4,
+          "name": "iOS",
+          "slug": "ios"
+        }
+      }
+    ],
+    "genres": [
+      {
+        "id": 4,
+        "name": "Action",
+        "slug": "action"
+      },
+      {
+        "id": 3,
+        "name": "Adventure",
+        "slug": "adventure"
+      }
+    ],
+    "stores": [
+      {
+        "id": 1,
+        "store": {
+          "id": 1,
+          "name": "Steam",
+          "slug": "steam"
+        }
+      },
+      {
+        "id": 3,
+        "store": {
+          "id": 3,
+          "name": "PlayStation Store",
+          "slug": "playstation-store"
+        }
+      },
+      {
+        "id": 2,
+        "store": {
+          "id": 2,
+          "name": "Xbox Store",
+          "slug": "xbox-store"
+        }
+      },
+      {
+        "id": 11,
+        "store": {
+          "id": 11,
+          "name": "Epic Games",
+          "slug": "epic-games"
+        }
+      },
+      {
+        "id": 8,
+        "store": {
+          "id": 8,
+          "name": "GOG",
+          "slug": "gog"
+        }
+      },
+      {
+        "id": 7,
+        "store": {
+          "id": 7,
+          "name": "Nintendo Store",
+          "slug": "nintendo"
+        }
+      }
+    ],
+    "clip": "https://media.rawg.io/media/stories-640/8c0/8c0f5d4a1e3e2f3f6e1e3f6e1e3f6e1e.mp4",
+    "tags": [
+      {
+        "id": 31,
+        "name": "Singleplayer",
+        "slug": "singleplayer",
+        "language": "eng",
+        "games_count": 206661,
+        "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+      },
+      {
+        "id": 40847,
+        "name": "Cross-Platform Multiplayer",
+        "slug": "cross-platform-multiplayer",
+        "language": "eng",
+        "games_count": 101,
+        "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+      },
+      {
+        "id": 40848,
+        "name": "Cross-Play",
+        "slug": "cross-play",
+        "language": "eng",
+        "games_count": 57,
+        "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+      },
+      {
+        "id": 40849,
+        "name": "Cross-Gen Multiplayer",
+        "slug": "cross-gen-multiplayer",
+        "language": "eng",
+        "games_count": 34,
+        "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+      },
+      {
+        "id": 40850,
+        "name": "Cross-Gen Singleplayer",
+        "slug": "cross-gen-singleplayer",
+        "language": "eng",
+        "games_count": 19,
+        "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+      },
+      {
+        "id": 40851,
+        "name": "Cross-Platform Co-op",
+        "slug": "cross-platform-co-op",
+        "language": "eng",
+        "games_count": 15,
+        "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+      },
+        {
+            "id": 40852,
+            "name": "Cross-Platform PvP",
+            "slug": "cross-platform-pvp",
+            "language": "eng",
+            "games_count": 12,
+            "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Multiplayer",
+            "slug": "multiplayer",
+            "language": "eng",
+            "games_count": 31921,
+            "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+        },
+        {
+            "id": 40853,
+            "name": "Cross-Platform Multiplayer PvP",
+            "slug": "cross-platform-multiplayer-pvp",
+            "language": "eng",
+            "games_count": 8,
+            "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+        },
+        {
+            "id": 1,
+            "name": "Co-op",
+            "slug": "co-op",
+            "language": "eng",
+            "games_count": 17028,
+            "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+        }
+    ],
+    "esrb_rating": {
+      "id": 3,
+      "name": "Teen",
+      "slug": "teen",
+      "name_en": "Teen",
+      "name_ru": "Подросткам"
+    },
+    "user_ratings": {
+      "1": 173,
+      "2": 376,
+      "3": 1493,
+      "4": 2922
+    },
+    "reviews": {
+      "1": 36,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    }
+    }
+]
